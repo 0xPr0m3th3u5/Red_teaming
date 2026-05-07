@@ -41,3 +41,20 @@ Container objects hold other objects and have a defined in the directory subtree
 
 Leaf objects do not contain other objects are found at the end of the subtree field
 
+## Global Unique Identifier (GUID)
+
+A GUID is a unique 128-bit value assigned when a domain user or group is created.
+- The GUID is stored in the `ObjectGUID`
+ - We can query for its objectGUID value using powershell or search for it. (The most accurate and reliable way)
+- The ObjectGUID properly *never* changes as long as it exists in the domain.
+
+## Security Principals
+
+Security principals are anything that the OS can authenticate including users, computer accounts or even thread/processes
+
+- Security principals are domain objects that can manage access to other resources within the domain.
+- We can enforce security groups used to control access to resources on only that specific cmoputer
+- It is managed by `Security account manager (SAM)`
+
+## Security Identifiers (SID)
+
