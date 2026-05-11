@@ -63,6 +63,7 @@ C = 8-byte server challenge, random
 K1 | K2 | K3 = LM/NT-hash | 5-bytes-0
 response = DES(K1,C) | DES(K2,C) | DES(K3,C)
 ```
+```
 u4-netntlm::kNS:338d08f8e26de93300000000000000000000000000000000:9526fb8c23a90751cdd619b6cea564742e1e4bf33006ba41:cb8086049ec4736c
 ```
 
@@ -91,7 +92,8 @@ admin::N46iSNekpT:08ca45b7d7ea58ee:88dcbe4446168966a153a0064958dac6:5c7830315c78
 
 If the host cannot reach the domain controller using the previous authentication methods:
 - Hosts save the last `ten` hashes for any domain users successfully log into the machine in `HKEY_LOCAL_MACHINE\SECURITY\CACHE` registry key (pass-the-hash cannot be used)
-- These hashes can be obtained after gaining local admin access to a host and have the format: 
+- These hashes can be obtained after gaining local admin access to a host and have the format:
+
 ```
 $DCC2$10240#bjones#e4e938d12fe5974dc42a90120bd9c90f
 ```
