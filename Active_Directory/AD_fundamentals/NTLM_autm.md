@@ -49,7 +49,7 @@ NOTE: The NT hash can be cracked offline to reveal the password value or doing t
 crackmapexec smb 10.129.41.19 -u rachel -H e46b9e548fa0d122de7f59fb6d48eaa2
 ```
 
-## NTLMv1
+# NTLMv1
 
 - NTLMv1 uses both the NT hash and LM hash which makes it easier to crack offline after tools such as **responder** or via an **NTLM relay attack**
 
@@ -66,7 +66,7 @@ response = DES(K1,C) | DES(K2,C) | DES(K3,C)
 u4-netntlm::kNS:338d08f8e26de93300000000000000000000000000000000:9526fb8c23a90751cdd619b6cea564742e1e4bf33006ba41:cb8086049ec4736c
 ```
 
-## NTLMv2
+# NTLMv2
 
 NTLMv2 sends two responses to the 8-byte challenge received by the server.
 these contains: `16-byte HMAC-MD5` hash of the challenge, a randomly generated challenge from the client and an HMAC-MD5 hash of the user's crentials.
@@ -83,9 +83,7 @@ response = LMv2 | CC | NTv2 | CC*
 
 **NTLMv2 example:**
 
-```
-admin::N46iSNekpT:08ca45b7d7ea58ee:88dcbe4446168966a153a0064958dac6:5c7830315c78303000000b45c67103d07d7b95acd12ffa11230e0000000052920b85f78d013c31cdb3b92f5d765c783030
-```
+`admin::N46iSNekpT:08ca45b7d7ea58ee:88dcbe4446168966a153a0064958dac6:5c7830315c78303000000b45c67103d07d7b95acd12ffa11230e0000000052920b85f78d013c31cdb3b92f5d765c783030`
 
 # Domain Cached Credentials (MSCache2)
 
