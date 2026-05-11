@@ -83,11 +83,15 @@ response = LMv2 | CC | NTv2 | CC*
 
 **NTLMv2 example:**
 
-`admin::N46iSNekpT:08ca45b7d7ea58ee:88dcbe4446168966a153a0064958dac6:5c7830315c78303000000b45c67103d07d7b95acd12ffa11230e0000000052920b85f78d013c31cdb3b92f5d765c783030`
+```
+admin::N46iSNekpT:08ca45b7d7ea58ee:88dcbe4446168966a153a0064958dac6:5c7830315c78303000000b45c67103d07d7b95acd12ffa11230e0000000052920b85f78d013c31cdb3b92f5d765c783030
+```
 
 # Domain Cached Credentials (MSCache2)
 
 If the host cannot reach the domain controller using the previous authentication methods:
 - Hosts save the last `ten` hashes for any domain users successfully log into the machine in `HKEY_LOCAL_MACHINE\SECURITY\CACHE` registry key (pass-the-hash cannot be used)
 - These hashes can be obtained after gaining local admin access to a host and have the format: 
-`$DCC2$10240#bjones#e4e938d12fe5974dc42a90120bd9c90f`
+```
+$DCC2$10240#bjones#e4e938d12fe5974dc42a90120bd9c90f
+```
