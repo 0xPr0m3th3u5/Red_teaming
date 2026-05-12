@@ -54,3 +54,19 @@ Non Domain joined computers or computers in a `workgroup` are not managed by `do
 the benefit: Individual users are in charge of any changes they with to make to their host.
 
 > A machine account (`NT AUTHORITY\SYSTEM`) will have the most of the same rights as a standard "Domain User account". 
+
+> SYSTEM access on a domain joined machine != Compromised domain user foothold.
+
+**Mental Model:**
+```
+Users
+    ↓
+Weak passwords
+Misconfigurations
+Excess privileges
+Token theft
+Kerberos abuse
+ACL abuse
+Group abuse
+Service accounts
+```
