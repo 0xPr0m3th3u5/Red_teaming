@@ -35,7 +35,7 @@ They can make shadow copies of the `SAM/NTDS` database which can be used to extr
 
 - `IIS_IUSRS` : A built-in gruop used by Internet Information Services.
 
--`Pre-windows 2000 Compatible Access` : Members in this group is often a leftover legacy configuration.
+- `Pre-windows 2000 Compatible Access` : Members in this group is often a leftover legacy configuration.
 
 - `Print Operators` : Members can manage, create, share and delete printers that are connected to domain controllers in the domain. They are allowed to log on DCs locally and may be used to load a malicious printer driver and escalate privileges within the domain.
 
