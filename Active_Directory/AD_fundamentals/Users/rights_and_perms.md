@@ -50,3 +50,85 @@ They can make shadow copies of the `SAM/NTDS` database which can be used to extr
 - `Schema Admins` : Members can modify the AD schema which is the way all objects with AD are defined. Only exists in root domain of an AD forest. The administrator is the onlly member by default.
 
 - `Server Operators` : This group exists on domain controllers. Members can modify services, access SMB shares and backup files on domain controllers. By default, it has no members.
+<<<<<<< HEAD
+=======
+
+```
+Get-ADGroup -Identity "Server Operators" -Properties *
+```
+
+**Domain Admisn Group Membership**
+```
+Get-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,GroupCategory,GroupScope,Name,Members
+```
+
+## User Rights Assignment
+
+Users can have various rights assigned to their account. More info: [https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment](User Rights Assignment).
+
+- `SeRemoteInteractiveLogonRight` : It can give our target user the right to log onto a host via RDP
+- `SeBackupPrivilege` : It grants a user the ability to create *System backups* and could be obtained copies of sensitive files that can be used to retrieve passwords such as `SAM` and `SYSTEM Registry hives` and `NTDS.DIT`.
+- `SeDebugPrivilege` : Allows a user to debug and adjust the memory of a process. Tool such as `Mimikatz` to read the memory space of the Local System AUthority (LSASS) to obtain creds stored in memoroy.
+- `SeImpersonatePrivilege` : Allows to impersonate a token of a privileged account e.g `NT AUTHORITY\SYSTEM`. Can be leveraged through `JuicyPotato`, `RogueWinRm`, `PrintSpoofer` to escalate privileges.
+- `SeLoadDrivePrivilege` : Allows load and unload device drivers that could potentially be used to escalate or compromise a system.
+- `SeTakeOwnershipPrivilege` : It allows a process to take ownership of an object.We could use this to gain access to a file share.
+
+### Domain Admin Rights Non-elevated
+
+By default, windows systems do not enable rights to us uneless we run the CMD or powershell console. This is controlled by `User Account Control (UAC)`.
+
+```
+whoami /priv
+
+PRIVILEGES INFORMATION
+----------------------
+
+Privilege Name                Description                          State
+============================= ==================================== ========
+SeShutdownPrivilege           Shut down the system                 Disabled
+SeChangeNotifyPrivilege       Bypass traverse checking             Enabled
+SeUndockPrivilege             Remove computer from docking station Disabled
+SeIncreaseWorkingSetPrivilege Increase a process working set       Disabled
+SeTimeZonePrivilege           Change the time zone                 Disabled
+
+```
+
+### Domain Admin Right Elevated
+
+```
+whoami /priv
+
+PRIVILEGES INFORMATION
+----------------------
+
+Privilege Name                            Description                                                        State
+========================================= ================================================================== ========
+SeIncreaseQuotaPrivilege                  Adjust memory quotas for a process                                 Disabled
+SeMachineAccountPrivilege                 Add workstations to domain                                         Disabled
+SeSecurityPrivilege                       Manage auditing and security log                                   Disabled
+SeTakeOwnershipPrivilege                  Take ownership of files or other objects                           Disabled
+SeLoadDriverPrivilege                     Load and unload device drivers                                     Disabled
+SeSystemProfilePrivilege                  Profile system performance                                         Disabled
+SeSystemtimePrivilege                     Change the system time                                             Disabled
+SeProfileSingleProcessPrivilege           Profile single process                                             Disabled
+SeIncreaseBasePriorityPrivilege           Increase scheduling priority                                       Disabled
+SeCreatePagefilePrivilege                 Create a pagefile                                                  Disabled
+SeBackupPrivilege                         Back up files and directories                                      Disabled
+SeRestorePrivilege                        Restore files and directories                                      Disabled
+SeShutdownPrivilege                       Shut down the system                                               Disabled
+SeDebugPrivilege                          Debug programs                                                     Enabled
+SeSystemEnvironmentPrivilege              Modify firmware environment values                                 Disabled
+SeChangeNotifyPrivilege                   Bypass traverse checking                                           Enabled
+SeRemoteShutdownPrivilege                 Force shutdown from a remote system                                Disabled
+SeUndockPrivilege                         Remove computer from docking station                               Disabled
+SeEnableDelegationPrivilege               Enable computer and user accounts to be trusted for delegation     Disabled
+SeManageVolumePrivilege                   Perform volume maintenance tasks                                   Disabled
+SeImpersonatePrivilege                    Impersonate a client after authentication                          Enabled
+SeCreateGlobalPrivilege                   Create global objects                                              Enabled
+SeIncreaseWorkingSetPrivilege             Increase a process working set                                     Disabled
+SeTimeZonePrivilege                       Change the time zone                                               Disabled
+SeCreateSymbolicLinkPrivilege             Create symbolic links                                              Disabled
+SeDelegateSessionUserImpersonatePrivilege Obtain an impersonation token for another user in the same session Disabled
+```
+
+>>>>>>> 9afe0c9 (Added rights and privileges)
