@@ -2,7 +2,7 @@
 
 User accounts:
 - Local systems (not joined in AD)
-- AD (joined in AD)
+- Domai accounts (joined in AD)
 
 When a user logs in, the system verifies their password and creates an access token. This token descripbes:
 - thread
