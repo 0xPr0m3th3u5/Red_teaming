@@ -131,4 +131,3 @@ SeCreateSymbolicLinkPrivilege             Create symbolic links                 
 SeDelegateSessionUserImpersonatePrivilege Obtain an impersonation token for another user in the same session Disabled
 ```
 
->>>>>>> 9afe0c9 (Added rights and privileges)
