@@ -50,8 +50,6 @@ They can make shadow copies of the `SAM/NTDS` database which can be used to extr
 - `Schema Admins` : Members can modify the AD schema which is the way all objects with AD are defined. Only exists in root domain of an AD forest. The administrator is the onlly member by default.
 
 - `Server Operators` : This group exists on domain controllers. Members can modify services, access SMB shares and backup files on domain controllers. By default, it has no members.
-<<<<<<< HEAD
-=======
 
 ```
 Get-ADGroup -Identity "Server Operators" -Properties *
@@ -64,7 +62,8 @@ Get-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,G
 
 ## User Rights Assignment
 
-Users can have various rights assigned to their account. More info: [https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment](User Rights Assignment).
+Users can have various rights assigned to their account. More info:
+ https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment
 
 - `SeRemoteInteractiveLogonRight` : It can give our target user the right to log onto a host via RDP
 - `SeBackupPrivilege` : It grants a user the ability to create *System backups* and could be obtained copies of sensitive files that can be used to retrieve passwords such as `SAM` and `SYSTEM Registry hives` and `NTDS.DIT`.
