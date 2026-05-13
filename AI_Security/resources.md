@@ -1,1 +1,0 @@
-- [ATLAS MITRE for AI Systems](https://atlas.mitre.org/matrices/ATLAS)
